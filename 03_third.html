@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    body { text-align: center; font-family: Arial, sans-serif; }
+    input, button { padding: 5px 10px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Number Guessing Game</h1>
+  <input type="number" id="guess" placeholder="Guess a number" min="1" max="10">
+  <button onclick="checkGuess()">Check</button>
+  <p id="guess-result"></p>
+
+  <script>
+    function checkGuess() {
+      const guess = document.getElementById('guess').value;
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      const result = guess == randomNumber ? 'You guessed it!' : 'Try again!';
+      document.getElementById('guess-result').innerText = result;
+    }
+  </script>
+</body>
+</html>

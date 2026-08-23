@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Game</title>
+  <style>
+    body { text-align: center; font-family: Arial, sans-serif; }
+    p { font-size: 30px; }
+    button { padding: 10px 20px; font-size: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Timer Game</h1>
+  <p id="timer">00:00</p>
+  <button onclick="startTimer()">Start Timer</button>
+
+  <script>
+    let seconds = 0;
+    let interval;
+
+    function startTimer() {
+      if (interval) clearInterval(interval);
+      interval = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        document.getElementById('timer').innerText = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

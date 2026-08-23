@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedBus Clone</title>
+    <link rel="shortcut icon" href="./red bus logo.webp" type="image/webp">
+
+    <style>
+        /* Reset margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation bar container */
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 10px 2vw;
+            background-color: #ffffff;
+        }
+
+        /* Logo styling */
+        .navlogo {
+            max-height: 48px;
+            width: 80px;
+        }
+
+        /* Vertical line beside the logo */
+        .line {
+            border-left: 2px solid black;
+            height: 48px;
+            margin-left: 10px;
+        }
+
+        /* Bus Tickets section */
+        .navcon1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #d84e55;
+            height: 70px;
+            width: 100px;
+            border-radius: 15px;
+            margin: 0 16px;
+            padding: 10px;
+        }
+
+        .navimg {
+            height: 30px;
+            width: 50px;
+            margin-bottom: 5px;
+        }
+
+        .bustickets {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Train offer section */
+        .trainoffer {
+            margin-left: 2vw;
+        }
+
+        /* Help logo */
+        .navcon2 {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .helplogo {
+            height: 60px;
+            width: 60px;
+        }
+
+        .thelp {
+            font-size: large;
+        }
+
+        /* Dropdown styling */
+        select {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .languagechangelogo,
+        .accountlogo {
+            margin-left: 10px;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        /* Background image */
+        .bgimg {
+            width: 100%;
+            height: 650px;
+            /* Adjust as per your design */
+            object-fit: cover;
+            position: relative;
+        }
+
+        /* Trending offer container */
+        .trendingofferdisplay {
+            height: fit-content;
+            border-radius: 32px;
+            padding: 2rem;
+            width: 90%;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            z-index: 1;
+            overflow-x: auto;
+            overflow-y: auto;
+            white-space: nowrap;
+            display: flex;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            bottom: 14vw;
+            left: 5%;
+        }
+
+        .trending {
+            font-size: 40px;
+            display: inline-block;
+        }
+
+        .View {
+            height: fit-content;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 1.5rem;
+            font-size: 20px;
+            color: blue;
+            display: inline-block;
+            position: relative;
+            left: 60vw;
+        }
+
+        .bodycon1,
+        .bodycon2,
+        .bodycon3 {
+            flex: none;
+            width: 500px;
+            height: 250px;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #4facfe, #8c1eff);
+            position: relative;
+            top: 5vw;
+            right: 26vw;
+        }
+
+        .bodycon2 {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+
+        }
+
+        .bodycon3 {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+
+        .bodycon1logo,
+        .bodycon2logo {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            position: relative;
+            top: 3vw;
+        }
+
+        .bodycon2logo {
+            border-radius: 0px;
+        }
+
+        .bodycon1text,
+        .bodycon2text,
+        .bodycon3text {
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 4vw;
+            left: 3vw;
+        }
+
+        .bodycon1bus,
+        .bodycon2bus,
+        .bodycon3bus {
+            background-color: gray;
+            color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 25px;
+            width: fit-content;
+            padding: 0px 10px;
+            margin-top: 10px;
+            position: relative;
+            left: 10vw;
+            bottom: 7vw;
+        }
+
+
+        .valid1,
+        .valid2,
+        .valid3 {
+            color: white;
+            font-size: small;
+            margin-top: 10px;
+            position: relative;
+            left: 10vw;
+            bottom: 4vw;
+        }
+
+        .first,
+        .bus300,
+        .superhit {
+            padding: 2px;
+            border: 2px dashed black;
+            background-color: grey;
+            color: white;
+            height: 30px;
+            width: 50px;
+            margin-top: 10px;
+            position: relative;
+            bottom: 2vw;
+            left: 9vw;
+            font-size: 13px;
+        }
+
+        .bus300 {
+            height: 35px;
+            width: 60px;
+        }
+
+        .superhit {
+            height: 35px;
+            width: 70px;
+        }
+
+        .besidebuttonlogo1,
+        .besidebuttonlogo2,
+        .besidebuttonlogo3 {
+            height: 15px;
+            width: 15px;
+            position: relative;
+            bottom: 47px;
+            left: 14vw;
+        }
+
+        .besidebuttonlogo2 {
+            position: relative;
+            left: 208px;
+            bottom: 47px;
+        }
+
+        .besidebuttonlogo3 {
+            position: relative;
+            left: 15vw;
+            bottom: 47px;
+        }
+
+        .firstbox,
+        .secondbox,
+        .thirdthbox,
+        .finalbox {
+            background-color: white;
+            z-index: 2;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            bottom: 30vw;
+            left: 10vw;
+            display: inline-block;
+            padding: 35px;
+            border-bottom-left-radius: 30px;
+            border-top-left-radius: 30px;
+        }
+
+        .firstbox {
+            border-right: 2px solid black;
+            position: relative;
+            left: 9vh;
+            bottom: 425px;
+        }
+
+        .secondbox {
+            height: 115px;
+            border-radius: 0px;
+            position: relative;
+            left: 85px;
+            bottom: 421px;
+            border-right: 2px solid black;
+        }
+
+        .thirdthbox {
+            height: 115px;
+            border-radius: 0px;
+            position: relative;
+            left: 81px;
+            bottom: 428px;
+        }
+
+        .firstlabelbox,
+        .secondlabelbox,
+        .thirdthlabelbox {
+            font-size: xx-large;
+            position: relative;
+            bottom: 2vw;
+            left: 2vw;
+        }
+
+        .secondlabelbox {
+            position: relative;
+            bottom: 33px;
+        }
+
+        .fromlogo,
+        .tologo,
+        .datelogo {
+            position: relative;
+            bottom: 2px;
+            left: 2px;
+        }
+
+        .inputbox1 {
+            border: none;
+            position: relative;
+            right: 4vh;
+        }
+
+        .inputbox2 {
+            border: none;
+            position: relative;
+            left: 1px;
+            bottom: 6px;
+        }
+
+        .inputbox3 {
+            border: none;
+            position: relative;
+            right: 3vh;
+        }
+
+        .bgsetup {
+            position: relative;
+            right: 3vh;
+        }
+
+        .finalbox{
+            padding: 43px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #c70c0c;
+            display: inline-block;
+            position: relative;
+            left: 38px;
+            bottom: 26.9rem;
+            border-top-right-radius : 30px;
+            border-bottom-right-radius :30px;
+            border-top-left-radius : 0px;
+            border-bottom-left-radius : 0px;
+            color: white;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+    <header>
+        <nav>
+            <img class="navlogo" src="./red bus logo.webp" alt="nav logo">
+            <div class="line"></div>
+            <div class="navcon1">
+                <img class="navimg" src="./Screenshot 2025-01-16 230044.png"
+                    alt="nav logo">
+                <div class="bustickets">Bus Tickets</div>
+            </div>
+            <div class="trainoffer">
+                <img src="./train offer.png" alt="train offer">
+            </div>
+            <div class="navcon2">
+                <img class="helplogo" src="./headphone logo.png" alt="help">
+                <div class="thelp">Help</div>
+                <img class="languagechangelogo" src="./language change.png"
+                    alt="language logo">
+                <select>
+                    <option hidden selected>English</option>
+                    <option>हिंदी</option>
+                    <option>ગુજરાતી</option>
+                    <option>Urdu</option>
+                    <option>Español</option>
+                </select>
+                <img class="accountlogo" src="./account logo.png" alt="account">
+                <select>
+                    <option hidden selected>Account</option>
+                    <option>Cancel Ticket</option>
+                    <option>Change Travel Date</option>
+                    <option>Show My Ticket</option>
+                    <option>E-mail/SMS</option>
+                    <option>Login/Sign Up</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+    <div class="bgbox">
+
+        <img class="bgimg" src="./Homepage-header-1600.webp" alt="bg img">
+        <div class="bgsetup">
+            <div class="firstbox">
+                <img class="fromlogo" src="./Screenshot 2025-01-16 220837.png"
+                    alt="fromlogo">
+                <label class="firstlabelbox" for="frombox">From</label>
+                <input class="inputbox1" id="frombox" name="frombox">
+            </div>
+            <div class="secondbox">
+                <img class="tologo" src="./Screenshot 2025-01-16 220913.png"
+                    alt="tologo">
+                <label class="secondlabelbox" for="tobox">To</label>
+                <input class="inputbox2" type="text" name="tobox" id="tobox">
+            </div>
+            <div class="thirdthbox">
+                <img class="Datelogo" src="./Screenshot 2025-01-16 220938.png"
+                    alt="Date">
+                <label class="thirdthlabelbox" for="Datebox">Date</label>
+                <input class="inputbox3" type="date" name="Date" id="Date">
+            </div>
+            <div class="finalbox">
+                <h2 class="searchbox"> search box</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="trendingofferdisplay">
+        <h2 class="trending">Trending Offer</h2>
+        <h2 class="View">View all</h2>
+
+        <div class="bodycon1">
+            <img class="bodycon1logo" src="./tile-80X80.png" alt="firstlogo">
+            <h3 class="bodycon1bus">Bus</h3>
+            <h2 class="bodycon1text">Save up to Rs 250 on bus tickets</h2>
+            <h3 class="valid1">Valid till 31 Jan</h3>
+            <button class="first">First</button>
+            <img class="besidebuttonlogo1" src="/.copy.svg" alt="small logo">
+        </div>
+        <div class="bodycon2">
+            <img class="bodycon2logo" src="./BUS300.png" alt="secondlogo">
+            <h3 class="bodycon2bus">Bus</h3>
+            <h2 class="bodycon2text">Save up to Rs 300 on bus tickets</h2>
+            <h3 class="valid2">Valid till 31 Jan</h3>
+            <button class="bus300">BUS300</button>
+            <img class="besidebuttonlogo2" src="./copy.svg" alt="small logo2">
+        </div>
+        <div class="bodycon3">
+            <img class="bodycon2logo" src="./superhit .png" alt="thirt logo3">
+            <h3 class="bodycon3bus">Bus</h3>
+            <h2 class="bodycon3text">Save up to Rs 300 on AP, TS routes</h2>
+            <h3 class="valid3">Valid till 31 Jan</h3>
+            <button class="superhit">SuperHit</button>
+            <img class="besidebuttonlogo3" src="./copy.svg" alt="small logo3">
+        </div>
+    </div>
+</body>
+
+</html>

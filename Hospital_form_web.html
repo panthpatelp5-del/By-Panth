@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Form</title>
+    <link rel="shortcut icon" href="/saved pic/hospital.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            text-align: center;
+            color: rgba(1, 252, 252, 0.842);
+            margin-top: 2rem;
+        }
+
+        .form-container {
+            max-width: 50vw;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: rgba(1, 252, 252, 0.842);
+        }
+
+        textarea {
+            height: 5rem;
+        }
+
+        button {
+            background-color: rgba(1, 252, 252, 0.842);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #01c5cc;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 2rem 0;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Hospital Form</h1>
+    <div class="form-container">
+        <form>
+            <fieldset>
+                <legend>
+                    <h2>Personal Details</h2>
+                </legend>
+                <div class="form-group">
+                    <label for="name">Name of the Patient</label>
+                    <input type="text" id="name" name="name" placeholder="Enter patient name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter patient age" required>
+                </div>
+                <div class="form-group">
+                    <label for="date-of-register">Date of Registration</label>
+                    <input type="date" id="date-of-register" name="date_of_register" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Primary Contact Number</label>
+                    <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact2">Secondary Contact Number</label>
+                    <input type="tel" id="contact2" name="contact2" placeholder="Enter second contact number">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2>Address</h2>
+                </legend>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" placeholder="Enter country name" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="Enter state name" required>
+                </div>
+                <div class="form-group">
+                    <label for="postal-code">Postal/ZIP Code</label>
+                    <input type="number" id="postal-code" name="postal_code" placeholder="Enter postal/ZIP code"
+                        required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2>Emergency Contact</h2>
+                </legend>
+                <div class="form-group">
+                    <label for="emergency-contact">Emergency Contact Name</label>
+                    <input type="text" id="emergency-contact" name="emergency_contact"
+                        placeholder="Enter emergency contact name" required>
+                </div>
+                <div class="form-group">
+                    <label for="relation">Relationship to Patient</label>
+                    <input type="text" id="relation" name="relation" placeholder="Enter your relationship" required>
+                </div>
+                <div class="form-group">
+                    <label for="family-doctor">Family Doctor's Name</label>
+                    <input type="text" id="family-doctor" name="family_doctor" placeholder="Enter family doctor's name">
+                </div>
+                <div class="form-group">
+                    <label for="family-doctor-phone">Family Doctor's Phone</label>
+                    <input type="tel" id="family-doctor-phone" name="family_doctor_phone"
+                        placeholder="Enter family doctor's phone">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h2>health history</h2>
+                </legend>
+
+                <div class="form-group">
+                    <label for="reason"> reason of Registration</label>
+                    <textarea name="reason" id="reason" placeholder="Enter reason"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="young">are you old than 18 year?</label>
+                </div>
+
+                <div>
+                    <label for="young-yes">yes</label>
+                    <input type="radio" id="young-yes" name="young-yes" value="yes" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="young-no">no</label>
+                    <input type="radio" id="young-yes" name="young-yes" value="no" required>
+                    <div class="form-group">
+                        <label for="medicine">Do you take any medicine currently?</label>
+                        <div>
+                            <input type="radio" id="medicine-yes" name="medicine" value="yes" required>
+                            <label for="medicine-yes">Yes</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="medicine-no" name="medicine" value="no">
+                            <label for="medicine-no">No</label>
+                        </div>
+                    </div>
+
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h2>insurance imformation</h2>
+                </legend>
+                <div class="form-group">
+                    <label for="insurance">insurance company name </label>
+                    <input type="text" id="insurance" name="insurance" placeholder="Enter insurance company name">
+                </div>
+                <div class="form-group">
+                    <label for="insurance id">insurance id</label>
+                    <input type="text" id="insurance id" name="insurance id" placeholder="enter your insurance id">
+                </div>
+                <div class="form-group">
+                    <label for="birth">date of birth</label>
+                    <input type="date" id="birth" name="birth" placeholder="Enter date" required>
+                </div>
+
+            </fieldset>
+
+            <button class="submit" type="submit" target="_blank">Submit</button>
+            <button type="reset" a herf="main_index/Hospital_form_web.html">Reset</a></button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="this is a web by panth patel :">
+    <title>Media-player-panth</title>
+    <link rel="shortcut icon" href="./music.png" type="image/png">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: linear-gradient(to right, #4b4a4a, #2e2e2e);
+        }
+
+        header {
+            width: 100%;
+        }
+
+        nav {
+            background: linear-gradient(to right, #4b4a4a, #2e2e2e);
+            color: white;
+            padding: 5px;
+            display: inline-block;
+            display: flex;
+            height: 4vw;
+            justify-content: end;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            font-style: none;
+            /* color: white; */
+        }
+
+        ul:hover {
+            cursor: pointer;
+        }
+
+        a {
+            margin-right: 2vw;
+            font-size: x-large;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            font-size: xx-large;
+            align-items: center;
+        }
+        fieldset{
+            height: 88vh;
+            margin-bottom: 2vw;
+            margin-right: 3vw;
+            margin-left: 3vw;
+            /* display: flex; */
+        }
+        legend{
+            color: white;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        img{
+            position: relative;
+            top: 5vw;
+            left: 24vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        video{
+            position: relative;
+            top: 4vw;
+            left: 36vw;
+        }
+        .nextbutton{
+            height: 100px;
+            width: 100px;
+            position: relative;
+            left: 23vw;
+            top: 21vw;
+            display: inline-block;
+        }
+        .previousbutton{
+            height: 100px;
+            width: 100px;
+            position: relative;
+            left: 8vw;
+            top: 12vw;
+        }
+        iframe{
+            height: 400px;
+            width: 700px;
+            position: relative;
+            left: 20vw;
+            top: 3vw;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="./Train_booking_web.html" target="_blank">Train Booking</a>
+                </li>
+                <li>
+                    <a href="./Hospital_form_web.html" target="_blank">Hospital Related</a>
+                </li>
+                <li>
+                    <a href="#">other</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <fieldset>
+        <legend>Song - Tu-hai-kahan - Song</legend>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7dnvG7L9-MQ?si=T2IysFTM90BAJ5L3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <a href="./tune_nai_kya_Kiya_audio_Media_Player_web.html"><img class="nextbutton" src="./next.png" alt="next button"></a>
+
+        <a href="./tu_hai_kahan_audio_Media_Player_web.html"><img class="previousbutton" src="./previous.png" alt="previous button"></a>
+
+    </fieldset>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+      color: white;
+    }
+    canvas {
+      border: 1px solid white;
+    }
+    .score {
+      position: absolute;
+      top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="pongCanvas" width="800" height="400"></canvas>
+  <div class="score">Player 1: <span id="player1Score">0</span> | Player 2: <span id="player2Score">0</span></div>
+
+  <script>
+    const canvas = document.getElementById('pongCanvas');
+    const ctx = canvas.getContext('2d');
+    const paddleWidth = 10, paddleHeight = 100, ballSize = 10;
+    let player1Y = (canvas.height / 2) - (paddleHeight / 2);
+    let player2Y = (canvas.height / 2) - (paddleHeight / 2);
+    let ballX = canvas.width / 2, ballY = canvas.height / 2;
+    let ballSpeedX = 5, ballSpeedY = 3;
+    let player1Score = 0, player2Score = 0;
+    let up1 = false, down1 = false, up2 = false, down2 = false;
+
+    document.addEventListener('keydown', movePaddle);
+    document.addEventListener('keyup', stopPaddle);
+
+    function movePaddle(event) {
+      if (event.keyCode === 87) up1 = true;
+      if (event.keyCode === 83) down1 = true;
+      if (event.keyCode === 38) up2 = true;
+      if (event.keyCode === 40) down2 = true;
+    }
+
+    function stopPaddle(event) {
+      if (event.keyCode === 87) up1 = false;
+      if (event.keyCode === 83) down1 = false;
+      if (event.keyCode === 38) up2 = false;
+      if (event.keyCode === 40) down2 = false;
+    }
+
+    function update() {
+      moveBall();
+      movePaddles();
+      checkCollisions();
+      draw();
+    }
+
+    function moveBall() {
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+
+      if (ballY <= 0 || ballY >= canvas.height) ballSpeedY = -ballSpeedY;
+      if (ballX <= 0) {
+        player2Score++;
+        document.getElementById('player2Score').textContent = player2Score;
+        resetBall();
+      }
+      if (ballX >= canvas.width) {
+        player1Score++;
+        document.getElementById('player1Score').textContent = player1Score;
+        resetBall();
+      }
+    }
+
+    function movePaddles() {
+      if (up1 && player1Y > 0) player1Y -= 5;
+      if (down1 && player1Y < canvas.height - paddleHeight) player1Y += 5;
+      if (up2 && player2Y > 0) player2Y -= 5;
+      if (down2 && player2Y < canvas.height - paddleHeight) player2Y += 5;
+    }
+
+    function checkCollisions() {
+      if (ballX <= paddleWidth && ballY >= player1Y && ballY <= player1Y + paddleHeight ||
+          ballX >= canvas.width - paddleWidth - ballSize && ballY >= player2Y && ballY <= player2Y + paddleHeight) {
+        ballSpeedX = -ballSpeedX;
+      }
+    }
+
+    function resetBall() {
+      ballX = canvas.width / 2;
+      ballY = canvas.height / 2;
+      ballSpeedX = -ballSpeedX;
+      ballSpeedY = 3;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, player1Y, paddleWidth, paddleHeight);
+      ctx.fillRect(canvas.width - paddleWidth, player2Y, paddleWidth, paddleHeight);
+      ctx.fillRect(ballX, ballY, ballSize, ballSize);
+    }
+
+    setInterval(update, 1000 / 60);
+  </script>
+
+</body>
+</html>
+
